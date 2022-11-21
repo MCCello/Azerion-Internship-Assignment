@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 //Enum of suits for consistency.
 public enum Suit
 {
-    HEARTS,
-    DIAMONDS,
-    CLUBS,
-    SPADES
+    HEARTS = 0,
+    DIAMONDS = 1,
+    CLUBS = 2,
+    SPADES = 3
 }
 
 //struct of cards 
@@ -25,28 +26,8 @@ public struct Card
     //override of ToString to print the card names & suits in a consistent way.9
     public override string ToString()
     {
-        //not the most efficient route - clean up!!
-        if (Number == 1)
-        {
-            return RepeatedCode("Ace", Suit);
-        }
-        if (Number == 11)
-        {
-            return RepeatedCode("Jack", Suit);
-        }
-        if (Number == 12)
-        {
-            return RepeatedCode("Queen", Suit);
-        }
-        if (Number == 13)
-        {
-            return RepeatedCode("King", Suit);
-        }
-        return RepeatedCode(Number.ToString(), Suit);
-    }
-    //nobody likes repeated code amIright
-    string RepeatedCode(string number, Suit suit)
-    {
-        return $"Card No. {number} of {suit}";
+        return $"Card No. {Number.ToString().Replace("11", "J").Replace("12", "Q").Replace("13", "K").Replace("1", "A")} of {Suit}";
     }
 }
+public enum Rankings { RoyalFlush, StraightFlush, FourOfAKind, FullHouse, Flush, Straight, ThreeOfAKind, TwoPair, OnePair, HighCard, Empty }
+
