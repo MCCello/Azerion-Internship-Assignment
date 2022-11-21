@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
 
         //for testing purposes, ^^ above line for randomized hand
         hand = new List<Card>();
-        hand.Add(new Card(1, Suit.HEARTS));
-        hand.Add(new Card(1, Suit.DIAMONDS));
-        hand.Add(new Card(1, Suit.CLUBS));
-        hand.Add(new Card(2, Suit.DIAMONDS));
-        hand.Add(new Card(2, Suit.HEARTS));
+        hand.Add(new Card(10, Suit.DIAMONDS));
+        hand.Add(new Card(11, Suit.DIAMONDS));
+        hand.Add(new Card(12, Suit.DIAMONDS));
+        hand.Add(new Card(13, Suit.DIAMONDS));
+        hand.Add(new Card(14, Suit.DIAMONDS));
     }
 
     public void PrintHand()

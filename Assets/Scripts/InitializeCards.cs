@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,23 +11,20 @@ public class InitializeCards : MonoBehaviour
     {
         DeckInnit();
     }
-
     void DeckInnit()
     {
         for (int i = 2; i <= 14; i++)
         {
-            AddCards(i, Suit.HEARTS);
-            AddCards(i, Suit.DIAMONDS);
-            AddCards(i, Suit.CLUBS);
-            AddCards(i, Suit.SPADES);
+            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+            {
+                AddCards(i, suit);
+            }
         }
     }
-
     void AddCards(int i, Suit s)
     {
         Deck.Add(new Card(i, s));
     }
-
     //debugging method for printing all cards in deck.
     public void PrintDeck()
     {
