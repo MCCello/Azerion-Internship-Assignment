@@ -22,8 +22,6 @@ public class HandGenerator : MonoBehaviour
             int random = Random.Range(0, initializeCards.Deck.Count);
 
             thisHand.Add(initializeCards.Deck.ElementAt(random));
-
-            Debug.Log(thisHand[i].ToString());
         }
         
         return thisHand;

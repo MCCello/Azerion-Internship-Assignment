@@ -13,7 +13,7 @@ public class InitializeCards : MonoBehaviour
 
     void DeckInnit()
     {
-        for (int i = 1; i <= 13; i++)
+        for (int i = 2; i <= 14; i++)
         {
             AddCards(i, Suit.HEARTS);
             AddCards(i, Suit.DIAMONDS);

@@ -26,7 +26,7 @@ public struct Card
     //override of ToString to print the card names & suits in a consistent way.9
     public override string ToString()
     {
-        return $"Card No. {Number.ToString().Replace("11", "J").Replace("12", "Q").Replace("13", "K").Replace("1", "A")} of {Suit}";
+        return $"Card No. {Number.ToString().Replace("11", "J").Replace("12", "Q").Replace("13", "K").Replace("14", "A")} of {Suit}";
     }
 }
 public enum Rankings { RoyalFlush, StraightFlush, FourOfAKind, FullHouse, Flush, Straight, ThreeOfAKind, TwoPair, OnePair, HighCard, Empty }
