@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+//Enum of suits for consistency.
 public enum Suit
 {
     HEARTS,
@@ -10,6 +11,8 @@ public enum Suit
     CLUBS,
     SPADES
 }
+
+//struct of cards 
 public struct Card
 {
     public Card(int number, Suit suit)
@@ -17,10 +20,10 @@ public struct Card
         Number = number;
         Suit = suit;
     }
-
     public int Number { get; }
     public Suit Suit { get; }
 
+    //override of ToString to print the card names & suits in a consistent way.9
     public override string ToString()
     {
         //not the most efficient route - clean up!!
@@ -42,26 +45,38 @@ public struct Card
         }
         return RepeatedCode(Number.ToString(), Suit);
     }
+    //nobody likes repeated code amIright
     string RepeatedCode(string number, Suit suit)
     {
         return $"Card No. {number} of {suit}";
     }
 }
+
 public class InitializeCards : MonoBehaviour
 {
     public List<Card> Deck = new List<Card>();
-
     private void Start()
+    {
+        DeckInnit();
+    }
+
+    void DeckInnit()
     {
         for (int i = 1; i <= 13; i++)
         {
-            Deck.Add(new Card(i, Suit.HEARTS)); // repeated code clean up!!
-            Deck.Add(new Card(i, Suit.DIAMONDS));
-            Deck.Add(new Card(i, Suit.CLUBS));
-            Deck.Add(new Card(i, Suit.SPADES));
+            AddCards(i, Suit.HEARTS);
+            AddCards(i, Suit.DIAMONDS);
+            AddCards(i, Suit.CLUBS);
+            AddCards(i, Suit.SPADES);
         }
     }
 
+    void AddCards(int i, Suit s)
+    {
+        Deck.Add(new Card(i, s));
+    }
+
+    //debugging method for printing all cards in deck.
     public void PrintDeck()
     {
         foreach (Card c in Deck)
