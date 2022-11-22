@@ -329,6 +329,7 @@ Transform:
   m_Children:
   - {fileID: 788903975}
   - {fileID: 1362888533}
+  - {fileID: 1406626041}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,8 +345,9 @@ GameObject:
   - component: {fileID: 788903978}
   - component: {fileID: 788903977}
   - component: {fileID: 788903976}
+  - component: {fileID: 788903979}
   m_Layer: 0
-  m_Name: innit
+  m_Name: GameLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,6 +403,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1dd049407436e14d93ba475ad4e42ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &788903979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788903974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ee577c7dfc9b542b3a9c4feb406a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &908131274
@@ -487,9 +501,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362888534}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: CheckHandResult
+      - m_Target: {fileID: 788903979}
+        m_TargetAssemblyTypeName: SortAllHands, Assembly-CSharp
+        m_MethodName: ButtonFindWinner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -707,7 +721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1131675973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -834,7 +848,7 @@ GameObject:
   - component: {fileID: 1362888533}
   - component: {fileID: 1362888534}
   m_Layer: 0
-  m_Name: player
+  m_Name: player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -869,7 +883,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handGenerator: {fileID: 0}
   handValidator: {fileID: 0}
+  rankings: 5
+  handInts: 0200000003000000040000000500000006000000
+--- !u!1 &1406626040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406626041}
+  - component: {fileID: 1406626042}
+  m_Layer: 0
+  m_Name: player 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406626041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406626040}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 536.73816, y: 257.33713, z: -3.3163004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 717378425}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406626042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406626040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb997bdcfebaf046b2c18528124c8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handGenerator: {fileID: 0}
+  handValidator: {fileID: 0}
   rankings: 0
+  handInts: 0500000006000000070000000800000009000000
 --- !u!1 &1935736372
 GameObject:
   m_ObjectHideFlags: 0
