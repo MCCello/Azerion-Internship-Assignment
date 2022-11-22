@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,17 +15,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        rankings = Rankings.Empty;
         handValidator = FindObjectOfType<HandValidator>();
         handGenerator = FindObjectOfType<HandGenerator>();
-        //hand = handGenerator.CreateHand();
-
-        //for testing purposes, ^^ above line for randomized hand
-        hand = new List<Card>();
-        hand.Add(new Card(10, Suit.DIAMONDS));
-        hand.Add(new Card(11, Suit.DIAMONDS));
-        hand.Add(new Card(12, Suit.DIAMONDS));
-        hand.Add(new Card(13, Suit.DIAMONDS));
-        hand.Add(new Card(14, Suit.DIAMONDS));
+        hand = handGenerator.CreateHand();
+        //TestHand();
     }
 
     public void PrintHand()
@@ -33,6 +28,16 @@ public class Player : MonoBehaviour
         {
             Debug.Log(item.ToString());
         }
+    }
+    void TestHand()
+    {
+        //for testing purposes,
+        hand = new List<Card>();
+        hand.Add(new Card(2, Suit.CLUBS));
+        hand.Add(new Card(3, Suit.HEARTS));
+        hand.Add(new Card(4, Suit.HEARTS));
+        hand.Add(new Card(5, Suit.HEARTS));
+        hand.Add(new Card(6, Suit.HEARTS));
     }
     public void CheckHandResult()
     {
