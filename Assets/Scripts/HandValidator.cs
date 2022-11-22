@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,16 +22,34 @@ public class HandValidator : MonoBehaviour
     }
     (bool, Rankings) CheckRoyalFlush(List<Card> hand)
     {
-        IEnumerable<Card> straightFlush = CheckStraightFlush(hand).Item3;
-        if (straightFlush != null)
+        var straightFlush = CheckStraightFlush(hand);
+        if (straightFlush.Item1)
         {
-            return straightFlush.Any(x => x.Number == 13 && x.Number == 14) ? (true, Rankings.RoyalFlush) : (false, Rankings.Empty);
+            //return straightFlush.Item3.All(x => x.Number <= 10) ? (true, Rankings.RoyalFlush) : (false, Rankings.Empty);
+            foreach (var card in straightFlush.Item3)
+            {
+                if (card.Number < 10)
+                {
+                    return (false, Rankings.Empty);
+                }
+            }
+            return (true, Rankings.RoyalFlush);
         }
         return (false, Rankings.Empty);
     }
     (bool, Rankings, IEnumerable<Card>) CheckStraightFlush(List<Card> hand)
     {
-        IEnumerable<Card> flush = hand.GroupBy(x => x.Suit).Where(x => x.Count() >= 5).SingleOrDefault() ?? Enumerable.Empty<Card>();
+        Suit temp = Suit.HEARTS;
+        for (int i = 0; i < hand.Count; i++)
+        {
+            if (i == 0) temp = hand[i].Suit;
+            if (hand[i].Suit != temp)
+            {
+                return (false, Rankings.Empty, null);
+            }
+        }
+        List<Card> flush = hand.GroupBy(x => x.Suit).Where(x => x.Count() >= 5).SingleOrDefault().ToList();
+        //IEnumerable<Card> flush = hand.GroupBy(x => x.Suit).Where(x => x.Count() >= 5).SingleOrDefault() ?? Enumerable.Empty<Card>();
         var straightFlush = CheckStraight(flush).Item3;
         return straightFlush != null ? (true, Rankings.StraightFlush, straightFlush) : (false, Rankings.Empty, null);
     }
@@ -60,6 +79,8 @@ public class HandValidator : MonoBehaviour
     }
     (bool, Rankings, IEnumerable<Card>) CheckStraight(List<Card> hand)
     {
+        hand = hand.OrderBy(x=>x.Number).ToList();
+
         if (hand.Any())
         {
             bool isAceStraight = !new List<int>() { 14, 2, 3, 4, 5 }.Except(hand.Select(x => x.Number)).Any();
@@ -70,35 +91,6 @@ public class HandValidator : MonoBehaviour
             int? temp = null;
             int conseductiveIndex = 0;
             for (int i = 0; i < hand.Count; i++)
-            {
-                if (temp.HasValue)
-                {
-                    if (temp != hand.ElementAt(i).Number - 1)
-                    {
-                        conseductiveIndex = i;
-                    }
-                    if (i - conseductiveIndex == 4)
-                    {
-                        return (true, Rankings.Straight, hand.Skip(conseductiveIndex).Take(5));
-                    }
-                }
-                temp = hand.ElementAt(i).Number;
-            }
-        }
-        return (false, Rankings.Empty, null);
-    }
-    (bool, Rankings, IEnumerable<Card>) CheckStraight(IEnumerable<Card> hand)
-    {
-        if (hand.Any())
-        {
-            bool isAceStraight = !new List<int>() { 14, 2, 3, 4, 5 }.Except(hand.Select(x => x.Number)).Any();
-            if (isAceStraight)
-            {
-                return (true, Rankings.Straight, hand.Where(x => new List<int>() { 14, 2, 3, 4, 5 }.Contains(x.Number)).GroupBy(x => x.Number).Select(x => x.First()));
-            }
-            int? temp = null;
-            int conseductiveIndex = 0;
-            for (int i = 0; i < hand.Count(); i++)
             {
                 if (temp.HasValue)
                 {
