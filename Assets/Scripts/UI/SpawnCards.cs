@@ -8,12 +8,12 @@ using UnityEngine.UI;
 public class SpawnCards : MonoBehaviour
 {
     public Player player;
+    //it would be more efficient to include this list of cards in a centralized location rather than in each spawn cards script
     public List<ScriptableCard> cards;
     List<Image> spriteCards;
 
     public void ShowHand()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         spriteCards = GetComponentsInChildren<Image>().ToList();
 
         for (int i = 0; i < player.hand.Count; i++)
