@@ -15,14 +15,15 @@ public class Player : MonoBehaviour
     public Rankings rankings;
 
     //testing purposes
+    [Header("Test Variables Ignore")]
     public List<int> handInts;
     private void Start()
     {
         rankings = Rankings.Empty;
         handValidator = FindObjectOfType<HandValidator>();
         handGenerator = FindObjectOfType<HandGenerator>();
-        //hand = handGenerator.CreateHand();
-        TestHand();
+        hand = handGenerator.CreateHand();
+        //TestHand();
     }
 
     public void PrintHand()
@@ -40,8 +41,7 @@ public class Player : MonoBehaviour
         {
             Array enums = Enum.GetValues(typeof(Suit));
             int random = UnityEngine.Random.Range(0, enums.Length);
-            hand.Add(new Card(i, Suit.CLUBS));
-            //(Suit)enums.GetValue(random)
+            hand.Add(new Card(i, (Suit)enums.GetValue(random)));
         }
         //for testing purposes,
 

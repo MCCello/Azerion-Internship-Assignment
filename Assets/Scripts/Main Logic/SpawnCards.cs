@@ -18,7 +18,7 @@ public class SpawnCards : MonoBehaviour
 
         for (int i = 0; i < player.hand.Count; i++)
         {
-            ScriptableCard c = cards.Find(x => x.Number == player.hand[i].Number);
+            ScriptableCard c = cards.Find(x => x.Number == player.hand[i].Number && x.Suit == player.hand[i].Suit);
 
             spriteCards[i].sprite = c.GetComponent<SpriteRenderer>().sprite;
         }
