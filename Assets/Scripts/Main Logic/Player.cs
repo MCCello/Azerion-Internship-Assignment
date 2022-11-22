@@ -49,6 +49,5 @@ public class Player : MonoBehaviour
     public void CheckHandResult()
     {
         rankings = handValidator.CheckHandResult(hand);
-        
     }
 }

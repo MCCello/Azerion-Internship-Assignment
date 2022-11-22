@@ -122,7 +122,7 @@ public class HandValidator : MonoBehaviour
         {
             toaK.AddRange(list);
         }
-        return toaK != null ? (true, toaK) : (false, toaK);
+        return toaK.Count != 0 ? (true, toaK) : (false, toaK);
     }
     (bool, Rankings) ChecKTwoPair(List<Card> hand)
     {

@@ -19,5 +19,19 @@ public class SortAllHands : MonoBehaviour
             player.CheckHandResult();
         }
         sortedByRank = players.OrderBy(x => x.rankings).ToList();
+        AnnounceWinner(players);
+    }
+    public void AnnounceWinner(List<Player> players)
+    {
+        List<SpawnCards> spawnCards = new List<SpawnCards>();
+        spawnCards = FindObjectsOfType<SpawnCards>().ToList();
+        
+        foreach (SpawnCards s in spawnCards)
+        {
+            if (s.player == sortedByRank[0])
+            {
+                s.TextChanger.textInput = "!!!!!!!Winner!!!!!!!";
+            }
+        }
     }
 }

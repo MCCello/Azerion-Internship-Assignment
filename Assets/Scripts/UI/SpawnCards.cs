@@ -11,7 +11,13 @@ public class SpawnCards : MonoBehaviour
     //it would be more efficient to include this list of cards in a centralized location rather than in each spawn cards script
     public List<ScriptableCard> cards;
     List<Image> spriteCards;
+    public TextChanger TextChanger;
 
+    private void Start()
+    {
+        TextChanger = GetComponentInChildren<TextChanger>();
+        TextChanger.textInput = player.gameObject.name;
+    }
     public void ShowHand()
     {
         spriteCards = GetComponentsInChildren<Image>().ToList();

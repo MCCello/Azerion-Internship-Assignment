@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6519355632641223170}
   - component: {fileID: 6519355632641223169}
+  - component: {fileID: 6576236640921101088}
   m_Layer: 5
   m_Name: PlayerHandUI
   m_TagString: Untagged
@@ -341,6 +342,20 @@ MonoBehaviour:
   - {fileID: 4493638060797129411, guid: b6bb04a701d565848b03864563f305ef, type: 3}
   - {fileID: 1672437416492426817, guid: f517d7eebcd0ada4c848e0bbc439ad42, type: 3}
   - {fileID: 2680064176561695472, guid: 70ce2ba4a3ccc1d4b83414df78342e19, type: 3}
+--- !u!114 &6576236640921101088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6519355632641223171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e7cc59ae9a1004ab5ade03dce99602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToChange: {fileID: 6202416886142989525}
+  textInput: {fileID: 0}
 --- !u!1 &6519355632733906144
 GameObject:
   m_ObjectHideFlags: 0
