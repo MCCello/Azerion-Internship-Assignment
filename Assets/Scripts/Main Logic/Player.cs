@@ -40,10 +40,11 @@ public class Player : MonoBehaviour
         {
             Array enums = Enum.GetValues(typeof(Suit));
             int random = UnityEngine.Random.Range(0, enums.Length);
-            hand.Add(new Card(i, (Suit)enums.GetValue(random)));
+            hand.Add(new Card(i, Suit.CLUBS));
+            //(Suit)enums.GetValue(random)
         }
         //for testing purposes,
-       
+
     }
     public void CheckHandResult()
     {
