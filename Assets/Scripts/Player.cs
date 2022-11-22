@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,13 +14,15 @@ public class Player : MonoBehaviour
     public List<Card> hand;
     public Rankings rankings;
 
+    //testing purposes
+    public List<int> handInts;
     private void Start()
     {
         rankings = Rankings.Empty;
         handValidator = FindObjectOfType<HandValidator>();
         handGenerator = FindObjectOfType<HandGenerator>();
-        hand = handGenerator.CreateHand();
-        //TestHand();
+        //hand = handGenerator.CreateHand();
+        TestHand();
     }
 
     public void PrintHand()
@@ -31,13 +34,16 @@ public class Player : MonoBehaviour
     }
     void TestHand()
     {
-        //for testing purposes,
         hand = new List<Card>();
-        hand.Add(new Card(2, Suit.CLUBS));
-        hand.Add(new Card(3, Suit.HEARTS));
-        hand.Add(new Card(4, Suit.HEARTS));
-        hand.Add(new Card(5, Suit.HEARTS));
-        hand.Add(new Card(6, Suit.HEARTS));
+
+        foreach (int i in handInts)
+        {
+            Array enums = Enum.GetValues(typeof(Suit));
+            int random = UnityEngine.Random.Range(0, enums.Length);
+            hand.Add(new Card(i, (Suit)enums.GetValue(random)));
+        }
+        //for testing purposes,
+       
     }
     public void CheckHandResult()
     {
