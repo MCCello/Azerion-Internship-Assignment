@@ -16,3 +16,7 @@
  <br> The SortAllHAnds script then makes sure every player's hand is validated and ranked, in turn it will then sort all players by rank and then by descending order of card numbers as it must check which two pairs are higher (or three of a kind, etc)
  <br> The sort all hands then loops thru all the players and whoever is sorted first in the previous line will be the winner, which is shown in the UI via a text change.
  <br> the spawn cards script is a bit out of the loop but it is called via a button to show all player cards.
+
+# UML
+![alt text](https://i.imgur.com/ve5RvDQ.jpg)
+
