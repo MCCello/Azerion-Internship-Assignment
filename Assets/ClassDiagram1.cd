@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HandGenerator">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\HandGenerator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="initializeCards" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="HandValidator">
+    <Position X="12" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAgEAEAAAAABQAAAAgAAAAAgAAAAAAAAAAAEAAAIAg=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\HandValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitializeCards">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <Members>
+      <Method Name="PrintDeck" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAABQAAAAAAABAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\InitializeCards.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="6.25" Y="2" Width="1.75" />
+    <Members>
+      <Field Name="handInts" Hidden="true" />
+      <Method Name="TestHand" Hidden="true" />
+    </Members>
+    <AssociationLine Name="handGenerator" Type="HandGenerator" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.854" Y="2" />
+        <Point X="7.854" Y="1.625" />
+        <Point X="11.625" Y="1.625" />
+        <Point X="11.625" Y="2" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQQgAAAAAIAAAAgAAAAAAoBAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rankings" />
+      <Field Name="handValidator" />
+      <Field Name="handGenerator" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RestartScene">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\RestartScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SortAllHands">
+    <Position X="12.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Main Logic\SortAllHands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScriptableCard">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Structs\ScriptableCard.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Suit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SpawnCards">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAAAAAAAAgAAAAAgAAAAAABAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\UI\SpawnCards.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextChanger">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\TextChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Card">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Structs\Cards.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Suit" />
+    </ShowAsAssociation>
+  </Struct>
+  <Enum Name="Suit" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Structs\Cards.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Rankings" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAAAgEAAAAAAAIEQAAAAQAAAAAAAEAAAAAIAgA=</HashCode>
+      <FileName>Assets\Scripts\Structs\Cards.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
