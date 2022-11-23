@@ -17,8 +17,10 @@ public class SortAllHands : MonoBehaviour
         foreach (Player player in players)
         {
             player.CheckHandResult();
+            player.SortHand();
         }
-        sortedByRank = players.OrderBy(x => x.rankings).ToList();
+        sortedByRank = players.OrderBy(x => x.rankings).ThenByDescending(x => x.hand[0].Number).ToList();
+
         AnnounceWinner(players);
     }
     public void AnnounceWinner(List<Player> players)

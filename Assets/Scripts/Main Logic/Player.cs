@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,7 +26,6 @@ public class Player : MonoBehaviour
         hand = handGenerator.CreateHand();
         //TestHand();
     }
-
     public void PrintHand()
     {
         foreach (Card item in hand)
@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     }
     void TestHand()
     {
+        //for testing purposes, go to editor and edit list of int's inside player gameobjects, then hand will spawn based on that list
+        //if you want to test a flush then change line 47
+
         hand = new List<Card>();
 
         foreach (int i in handInts)
@@ -43,11 +46,13 @@ public class Player : MonoBehaviour
             int random = UnityEngine.Random.Range(0, enums.Length);
             hand.Add(new Card(i, (Suit)enums.GetValue(random)));
         }
-        //for testing purposes,
-
     }
     public void CheckHandResult()
     {
         rankings = handValidator.CheckHandResult(hand);
+    }
+    public void SortHand()
+    {
+        hand = hand.OrderByDescending(x => x.Number).ToList();
     }
 }

@@ -1007,7 +1007,7 @@ MonoBehaviour:
   handGenerator: {fileID: 0}
   handValidator: {fileID: 0}
   rankings: 0
-  handInts: 0700000008000000090000000a0000000b000000
+  handInts: 06000000040000000a0000000a00000003000000
 --- !u!1 &1362888532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   handGenerator: {fileID: 0}
   handValidator: {fileID: 0}
   rankings: 5
-  handInts: 0200000003000000040000000500000006000000
+  handInts: 0e0000000e000000030000000200000006000000
 --- !u!1 &1406626040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   handGenerator: {fileID: 0}
   handValidator: {fileID: 0}
   rankings: 0
-  handInts: 0500000006000000070000000800000009000000
+  handInts: 0500000002000000060000000600000007000000
 --- !u!1001 &1776402743
 PrefabInstance:
   m_ObjectHideFlags: 0
